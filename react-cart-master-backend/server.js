@@ -5,7 +5,11 @@ const stripe = require("stripe")(
 );
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin:[ "https://ddeploy-mern-1whq.vercel.app"],
+  methods: ["POST","GET","PUT","DELETE"],
+  credentials:true
+}));
 app.use(express.static("public"));
 app.use(express.json());
 
